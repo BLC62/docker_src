@@ -1,0 +1,86 @@
+% Orsys - docker
+% Nicolas Rousset
+% Monday, 5th of december
+
+# TP n 1 : Prise en main de Docker
+
+## 1 - premier docker
+
+Tapez la commande :
+
+    docker run hello-world
+
+Que se passe-t-il ?
+
+## 2 - lister les images
+
+Tapez la commande :
+
+    docker image ls
+
+Que voyez-vous ?
+
+## 3 - lister les container et images
+
+Tapez les 4 commandes suivantes
+
+    docker run hello-world
+    docker image ls
+    docker container ls
+    docker container ls -a
+
+Que voyez-vous ?
+D'où vient la différence entre `image ls` et `container ls -a` ?
+Que fait l'option -a de `docker container ls -a` ?
+
+## 4 - persisting docker
+
+Tapez la commande suivante :
+
+    docker run httpd:alpine
+
+Que se passe-t-il ? Qu'est-ce qui se produit si vous tapez docker container ls ?
+Que se passe-t-il si vous vous connectez sur localhost:82 ?
+
+## 5 - persisting docker (2)
+
+Tapez la commande suivante :
+
+    docker run -p 82:80 httpd:alpine
+
+Que se passe-t-il si vous vous connectez à localhost:82 ?
+Quelle différence par rapport à la fois précédente ?
+A quoi sert l'option -p ?
+
+## 6 - persisting docker (3)
+
+Tapez la commande suivante :
+
+    docker run -p 82:80 httpd:alpine
+
+Même questions :
+
+Que se passe-t-il si vous vous connectez à localhost:82 ?
+Quelle différence par rapport à la fois précédente ?
+A quoi sert l'option -p ?
+
+## 7 - persisting docker (4)
+
+Tapez la commande suivante :
+
+    docker run -p 82:80 --name terry_pratchett -d httpd:alpine
+
+Et maintenant :
+
+    docker exec -it terry_pratchett sh
+
+Que se passe-t-il ? A quoi servent les options -it / --name ?
+Que fait la commande `exec` ?
+
+## 
+
+Tapez la commande :
+Tapez la commande :
+Tapez la commande :
+Tapez la commande :
+Tapez la commande :
