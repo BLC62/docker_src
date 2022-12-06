@@ -1,3 +1,0 @@
-% Orsys - docker
-% Nicolas Rousset
-% Tuesday, 6th of december

@@ -1,0 +1,40 @@
+% Orsys - docker
+% Nicolas Rousset
+% Monday, 5th of december
+
+# TP n 1 : Prise en main de Docker plus
+
+## 1 - copy depuis container
+
+Lancez un conteneur `ubuntu` en mode intéractif, créez un répertoire /app, et mettez un fichier truc.txt dedans
+(avec touch truc.txt ou echo "truc" >> truc.txt)
+
+Dans un autre terminal, copier le contenu de ce répertoire localement avec la commande :
+
+    docker cp <conteneur_id/conteneur_name>:<path_in_conteneur> <local_path>
+
+Vérifiez le contenu du conteneur
+
+## 2 - connecter deux containers
+
+Creéz un network 'test_network' avec docker network create
+
+Lancez une base de donnée postgres (par exemple postgres:15-alpine) sur le réseau
+Lancez un conteneur avec ubuntu sur le même network
+
+Dans ce conteneur :
+
+    apt update && apt install -y postgresql-client
+
+Puis
+
+    psql postgresql://postgres:password@<nom_ou_id_du_conteneur>:5432/postgres
+
+Pour vous connecter à la base de donnée postgres
+
+## 3- même exercice
+
+Mais exercice en essayant de déconnecter et relancer la base de donnée et de faire en sorte
+ que les données soient persistées grace à un volume pour la base de donnée
+
+Vous pouver utiliser docker image inspect postgres:15-alpine pour avoir une indication sur le volume

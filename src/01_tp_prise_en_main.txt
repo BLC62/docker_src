@@ -46,7 +46,7 @@ Que se passe-t-il si vous vous connectez sur localhost:82 ?
 
 Tapez la commande suivante :
 
-    docker run -p 82:80 httpd:alpine
+    docker run httpd:alpine
 
 Que se passe-t-il si vous vous connectez à localhost:82 ?
 Quelle différence par rapport à la fois précédente ?
@@ -77,10 +77,48 @@ Et maintenant :
 Que se passe-t-il ? A quoi servent les options -it / --name ?
 Que fait la commande `exec` ?
 
-## 
+## 8 - data persistence in docker
 
-Tapez la commande :
-Tapez la commande :
-Tapez la commande :
-Tapez la commande :
-Tapez la commande :
+Lancez la suite de commande suivante :
+
+    docker run -it --name terry_pratchett_2 ubuntu bash
+
+Et dans le docker
+
+    touch weatherwax.txt
+    ls
+
+Maintenant quittez le conteneur et relancez la commande précédente sans le --name :
+
+    docker run -it ubuntu bash
+
+Et dans le docker
+
+    ls
+
+Voyez vous le fichier weatherwax.txt ?
+
+Maintenant reconnectez vous au premier container :
+
+    docker restart terry_pratchett_2
+    docker exec -it terry_pratchett_2 bash
+
+## 9 - volumes
+
+Créez un dossier vide sur votre ordinateur et placez vous dans ce dossier.
+Créez y un fichier test_volumes.txt
+
+Lancez un conteneur basé sur ubuntu. Existe-t-il un répertoire /app ?
+
+Maintenant lancez un autre conteneur ubuntu avec la commande suivante :
+
+    docker run -it -v $(pwd):/app ubuntu bash
+
+Existe-t-il un répertoire /app ? Que contient-il ?
+A l'intérieur du conteneur, ajoutez un fichier dans le répertoire /app, par
+exemple avec la ligne de commande:
+
+    touch /app/hello_world.txt
+
+Que voyez-vous dans votre répertoire sur votre ordinateur ?
+
