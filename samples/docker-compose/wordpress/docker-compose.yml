@@ -1,5 +1,8 @@
 version: '3'
 services:
+  worker:
+    image: ubuntu
+  
   wordpress_db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
     image: mariadb:10.6.4-focal
@@ -25,6 +28,8 @@ services:
     ports:
       - 81:80
     restart: always
+    links:
+      - wordpress_db:wordpress_database
     environment:
       - WORDPRESS_DB_HOST=wordpress_db
       - WORDPRESS_DB_USER=wordpress

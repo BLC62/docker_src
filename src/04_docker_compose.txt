@@ -1,3 +1,29 @@
 % Orsys - docker
 % Nicolas Rousset
-% Monday, 5th of december
+% Monday, 6th of december
+
+# Exercice 1 :
+
+Récupérer le docker-compose.yml de wordpress
+
+    wget https://raw.github.com/Aenori/docker_src/main/samples/docker-compose/wordpress/docker-compose.yml
+
+Lancez le avec docker-compose up
+Dans une autre fenêtre tapez :
+
+    docker container ls
+    docker-compose down
+    docker container ls -a
+
+Relancez votre application et tapez, dans un autre terminal, mais même répertoire
+
+    docker-compose exec -it wordpress sh
+
+# Exercice 2 :
+
+A partir de l'exemple fournit, créez un docker-compose.yml qui lance un conteneur basé sur l'image :
+
+    httpd:alpine
+
+Et qui expose le port 80 (vers le port 80, 81, 82 ou 83 de la machine hôte)
+
