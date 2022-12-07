@@ -17,7 +17,7 @@ Dans une autre fenêtre tapez :
 
 Relancez votre application et tapez, dans un autre terminal, mais même répertoire
 
-    docker-compose exec -it wordpress sh
+    docker-compose exec wordpress sh
 
 # Exercice 2 :
 
